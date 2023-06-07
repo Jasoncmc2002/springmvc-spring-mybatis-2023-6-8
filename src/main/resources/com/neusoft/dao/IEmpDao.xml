@@ -7,5 +7,23 @@
     <select id="getEmpById" parameterType="int" resultType="Emp">
         select * from emp where id =#{id}
     </select>
+    <select id="getEmpList" resultType="Emp">
+        select * from emp
+    </select>
+    <insert id="addEmp" parameterType="Emp">
+      insert into emp(ename,deptid) values(#{ename},#{deptid})
+    </insert>
+    <select id="getEmpByName" parameterType="String" resultType="Emp">
+        select * from emp where ename=#{ename}
+    </select>
+    <update id="modifyEmp" parameterType="Emp">
+        update emp
+        set ename =#{ename},
+            deptid=#{deptid}
+        where id =#{id}
+    </update>
+    <delete id="deleteEmp" parameterType="Emp">
+        delete from emp where id =#{id}
+    </delete>
 
 </mapper>
